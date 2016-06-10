@@ -1,8 +1,10 @@
 FROM ruby:2.3.0
 ENV LANG C.UTF-8
 
-RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs npm nodejs-legacy
-RUN npm install -g phantomjs-prebuilt
+RUN apt-get update -qq && apt-get install -y libpq-dev graphviz imagemagick
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - && apt-get install -y nodejs build-essential && npm install -g phantomjs-prebuilt
+RUN rm -rf /var/lib/apt/lists/*
+
 RUN gem install bundler
 
 ENV APP_HOME /myapp
