@@ -1,4 +1,4 @@
-FROM ruby:2.3.0
+FROM ruby:latest
 ENV LANG C.UTF-8
 
 RUN apt-get update -qq && apt-get install -y libpq-dev graphviz imagemagick
